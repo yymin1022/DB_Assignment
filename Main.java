@@ -39,15 +39,15 @@ public class Main{
 
         while(resultSet.next()){
             String strProductID = resultSet.getString("ID");
-            System.out.printf("Product ID : %s\n", strProductID);
+            System.out.printf("Product ID : %s : ", strProductID);
             String strProductName = resultSet.getString("NAME");
-            System.out.printf("Product Name : %s\n", strProductName);
+            System.out.printf("Product Name : %s / ", strProductName);
             String strProductManuCompany = resultSet.getString("MANU_COMPANY");
-            System.out.printf("Product Manufacture Company : %s\n", strProductManuCompany);
+            System.out.printf("Product Manufacture Company : %s / ", strProductManuCompany);
             String strProductManuCountry = resultSet.getString("MANU_COUNTRY");
-            System.out.printf("Product Manufacture Country : %s\n", strProductManuCountry);
+            System.out.printf("Product Manufacture Country : %s / ", strProductManuCountry);
             String strProductPrice = resultSet.getString("PRICE");
-            System.out.printf("Product Price : %s\n", strProductPrice);
+            System.out.printf("Product Price : %s / ", strProductPrice);
             String strProductType = resultSet.getString("TYPE");
             System.out.printf("Product Type : %s\n", strProductType);
         }
