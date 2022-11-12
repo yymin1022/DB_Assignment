@@ -13,15 +13,31 @@ public class Main{
 
         Connection connection = DriverManager.getConnection(sqlConnData[0], sqlConnData[1], sqlConnData[2]);
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from USER_LIST");
+
+        printAllColumns(statement, "PRODUCT_LIST");
+
+        statement.close();
+        connection.close();
+    }
+
+    static void printAllColumns(Statement dbStatement, String table) throws SQLException {
+        ResultSet resultSet = dbStatement.executeQuery(String.format("select * from %s", table));
 
         while(resultSet.next()){
-            String name = resultSet.getString("USER_ID");
-            System.out.println(name);
+            String strProductID = resultSet.getString("ID");
+            System.out.printf("Product ID : %s\n", strProductID);
+            String strProductName = resultSet.getString("NAME");
+            System.out.printf("Product Name : %s\n", strProductName);
+            String strProductManuCompany = resultSet.getString("MANU_COMPANY");
+            System.out.printf("Product Manufacture Company : %s\n", strProductManuCompany);
+            String strProductManuCountry = resultSet.getString("MANU_COUNTRY");
+            System.out.printf("Product Manufacture Country : %s\n", strProductManuCountry);
+            String strProductPrice = resultSet.getString("PRICE");
+            System.out.printf("Product Price : %s\n", strProductPrice);
+            String strProductType = resultSet.getString("TYPE");
+            System.out.printf("Product Type : %s\n", strProductType);
         }
 
         resultSet.close();
-        statement.close();
-        connection.close();
     }
 }
