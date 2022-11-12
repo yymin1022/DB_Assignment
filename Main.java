@@ -15,9 +15,10 @@ public class Main{
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from USER_LIST");
 
-        resultSet.next();
-        String name = resultSet.getString("USER_ID");
-        System.out.println(name);
+        while(resultSet.next()){
+            String name = resultSet.getString("USER_ID");
+            System.out.println(name);
+        }
 
         resultSet.close();
         statement.close();
