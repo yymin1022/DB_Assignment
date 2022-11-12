@@ -14,6 +14,20 @@ public class Main{
         Connection connection = DriverManager.getConnection(sqlConnData[0], sqlConnData[1], sqlConnData[2]);
         Statement statement = connection.createStatement();
 
+        System.out.println("===SELECT Query Before Dynamic Insert===");
+        printAllColumns(statement, "PRODUCT_LIST");
+
+        String insertDynamic = "INSERT INTO PRODUCT_LIST values(?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(insertDynamic);
+        preparedStatement.setString(1, "00006");
+        preparedStatement.setString(2, "Galaxy Z Fold 4");
+        preparedStatement.setString(3, "Samsung");
+        preparedStatement.setString(4, "KR");
+        preparedStatement.setInt(5, 1750000);
+        preparedStatement.setString(6, "SmartPhone_Foldable");
+        preparedStatement.executeUpdate();
+
+        System.out.println("===SELECT Query After Dynamic Insert===");
         printAllColumns(statement, "PRODUCT_LIST");
 
         statement.close();
