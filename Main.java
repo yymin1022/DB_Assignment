@@ -10,7 +10,9 @@ public class Main{
     static int initLogin(){
         String inputID, inputPW;
         Scanner loginScanner = new Scanner(System.in);
+        System.out.print("ID : ");
         inputID = loginScanner.nextLine();
+        System.out.print("PW : ");
         inputPW = loginScanner.nextLine();
 
         ArrayList<String> listUser = new ArrayList<>(Arrays.asList("yong", "sans"));
