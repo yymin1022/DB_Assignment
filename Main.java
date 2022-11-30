@@ -30,7 +30,6 @@ public class Main{
 
             if(inputPW.equals(listPW.get(userIdx))){
                 //Login Success
-
                 if(inputID.equals("sans")){
                     return 0;
                 }else if(inputID.equals("yong")){
@@ -39,10 +38,12 @@ public class Main{
             }
 
             // Wrong Password
+            System.out.println("Wrong Password. Try Again.");
             return -2;
         }
 
         // No Such User
+        System.out.println("No Such User. Try Again.");
         return -1;
     }
 
