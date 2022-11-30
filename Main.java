@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        int userType = -1;
+        int userType;
         while(true){
             userType = initLogin();
             if(userType >= 0){
