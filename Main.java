@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        System.out.printf("%d", initLogin());
+        while(initLogin() != 0);
+
+        initMainMenu(0);
     }
 
     static int initLogin(){
@@ -31,5 +33,15 @@ public class Main{
 
         // No Such User
         return -1;
+    }
+
+    static void initMainMenu(int userType){
+        System.out.println("1. 사용자 정보 조회");
+        System.out.println("2. 판매 상품 검색");
+        System.out.printf("3. %s거래내역 조회\n", userType == 0 ? "전체 " : "");
+        
+        if(userType == 0){
+            System.out.println("4. 상품 재고 관리");
+        }
     }
 }
