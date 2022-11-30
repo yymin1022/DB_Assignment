@@ -4,9 +4,15 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        while(initLogin() != 0);
+        int userType = -1;
+        while(true){
+            userType = initLogin();
+            if(userType >= 0){
+                break;
+            }
+        }
 
-        initMainMenu(0);
+        initMainMenu(userType);
     }
 
     static int initLogin(){
@@ -24,7 +30,12 @@ public class Main{
 
             if(inputPW.equals(listPW.get(userIdx))){
                 //Login Success
-                return 0;
+
+                if(inputID.equals("sans")){
+                    return 0;
+                }else if(inputID.equals("yong")){
+                    return 1;
+                }
             }
 
             // Wrong Password
