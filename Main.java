@@ -73,7 +73,32 @@ public class Main{
     }
 
     static void searchTransactionMenu(){
-        System.out.println("Transaction Search Menu!");
+        while(true){
+            System.out.println("Please Select Transaction Search Menu.");
+            System.out.println("1. List All Transactions");
+            System.out.println("2. Search by User Name");
+            System.out.println("3. Search by Product Name");
+            System.out.println("4. Return to Main");
+
+            Scanner menuScanner = new Scanner(System.in);
+            System.out.print("Please Select Menu : ");
+            String userInput = menuScanner.nextLine();
+            switch(userInput){
+                case "1":
+                    System.out.println("List All Transactions");
+                    break;
+                case "2":
+                    System.out.println("Search by User Name");
+                    break;
+                case "3":
+                    System.out.println("Search by Product Name");
+                    break;
+                case "4":
+                    return;
+                default:
+                    System.out.println("Wrong Input. Please Try Again.");
+            }
+        }
     }
 
     static void searchUserMenu(){
