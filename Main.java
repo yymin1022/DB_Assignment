@@ -14,13 +14,13 @@ public class Main{
             String userInput = menuScanner.nextLine();
             switch (userInput) {
                 case "1":
-                    System.out.println("1. Search Products");
+                    searchProductMenu();
                     break;
                 case "2":
-                    System.out.println("2. Search Transaction History");
+                    searchTransactionMenu();
                     break;
                 case "3":
-                    System.out.println("3. Search User Info");
+                    searchUserMenu();
                     break;
                 case "4":
                     System.out.println("Exit. Thank you for Using.");
