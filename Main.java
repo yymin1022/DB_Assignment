@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
+        System.out.println("Database Design Report 4 : Dept. Software 20194094 유용민");
         while(true){
-            System.out.println("Database Design Report 4 : Dept. Software 20194094 유용민");
             System.out.println("1. Search Products");
             System.out.println("2. Search Transaction History");
             System.out.println("3. Search User Info");
