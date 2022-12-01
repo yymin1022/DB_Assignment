@@ -102,6 +102,27 @@ public class Main{
     }
 
     static void searchUserMenu(){
-        System.out.println("User Search Menu!");
+        while(true){
+            System.out.println("Please Select User Search Menu.");
+            System.out.println("1. List All Users");
+            System.out.println("2. Search by User Name");
+            System.out.println("3. Return to Main");
+
+            Scanner menuScanner = new Scanner(System.in);
+            System.out.print("Please Select Menu : ");
+            String userInput = menuScanner.nextLine();
+            switch(userInput){
+                case "1":
+                    System.out.println("List All Users");
+                    break;
+                case "2":
+                    System.out.println("Search by User Name");
+                    break;
+                case "3":
+                    return;
+                default:
+                    System.out.println("Wrong Input. Please Try Again.");
+            }
+        }
     }
 }
