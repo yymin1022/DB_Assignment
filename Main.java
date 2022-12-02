@@ -8,8 +8,7 @@ public class Main{
             System.out.println("Please Select Menu.");
             System.out.println("1. Search Products");
             System.out.println("2. Search Transaction History");
-            System.out.println("3. Search User Info");
-            System.out.println("4. Exit Program");
+            System.out.println("3. Exit Program");
 
             Scanner menuScanner = new Scanner(System.in);
             System.out.print("Please Select Menu : ");
@@ -24,10 +23,6 @@ public class Main{
                     searchTransactionMenu();
                     break;
                 case "3":
-                    System.out.println("********************");
-                    searchUserMenu();
-                    break;
-                case "4":
                     System.out.println("********************");
                     System.out.println("Exit. Thank you for Using.");
                     return;
@@ -107,35 +102,6 @@ public class Main{
                     System.out.printf("Product Search Result for %s\n", prodNameInput);
                     break;
                 case "4":
-                    return;
-                default:
-                    System.out.println("Wrong Input. Please Try Again.");
-            }
-        }
-    }
-
-    static void searchUserMenu(){
-        while(true){
-            System.out.println("Please Select User Search Menu.");
-            System.out.println("1. List All Users");
-            System.out.println("2. Search by User Name");
-            System.out.println("3. Return to Main");
-
-            Scanner menuScanner = new Scanner(System.in);
-            System.out.print("Please Select Menu : ");
-            String userInput = menuScanner.nextLine();
-            switch(userInput){
-                case "1":
-                    System.out.println("List All Users");
-                    break;
-                case "2":
-                    System.out.println("Search by User Name");
-                    Scanner userNameScanner = new Scanner(System.in);
-                    System.out.println("Please Insert User Name for Search");
-                    String userNameInput = userNameScanner.nextLine();
-                    System.out.printf("User Search Result for %s\n", userNameInput);
-                    break;
-                case "3":
                     return;
                 default:
                     System.out.println("Wrong Input. Please Try Again.");
