@@ -49,7 +49,7 @@ public class Main{
         }
     }
 
-    static void searchProductMenu(){
+    static void searchProductMenu() throws SQLException {
         while(true){
             System.out.println("Please Select Product Search Menu.");
             System.out.println("1. List All Products");
@@ -64,21 +64,24 @@ public class Main{
             switch(userInput){
                 case "1":
                     System.out.println("List All Products");
+                    printProduct("SELECT * FROM PRODUCT");
                     break;
                 case "2":
                     System.out.println("List All Available Products");
+                    printProduct("SELECT * FROM PRODUCT AS PR WHERE (SELECT COUNT FROM STOCK AS STK WHERE STK.PROD_ID=PR.ID) > 0;");
                     break;
                 case "3":
                     Scanner prodNameScanner = new Scanner(System.in);
                     System.out.println("Please Insert Product Name for Search");
                     String prodNameInput = prodNameScanner.nextLine();
-                    System.out.printf("Product Search Result for %s\n", prodNameInput);
+                    printProduct(String.format("SELECT * FROM PRODUCT WHERE NAME=\"%s\"", prodNameInput));
                     break;
                 case "4":
                     Scanner prodTypeScanner = new Scanner(System.in);
                     System.out.println("Please Insert Product Type for Search");
                     String prodTypeInput = prodTypeScanner.nextLine();
                     System.out.printf("Product Search Result for %s\n", prodTypeInput);
+                    printProduct(String.format("SELECT * FROM PRODUCT WHERE TYPE=\"%s\"", prodTypeInput));
                     break;
                 case "5":
                     return;
