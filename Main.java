@@ -152,11 +152,11 @@ public class Main{
         while(resultSet.next()){
             String strTransactionID = resultSet.getString("ID");
             System.out.printf("Transaction ID : %s : ", strTransactionID);
-            String strProductID = resultSet.getString("ID");
+            String strProductID = resultSet.getString("PROD_ID");
             System.out.printf("Product ID : %s : ", strProductID);
-            String strUserID = resultSet.getString("ID");
+            String strUserID = resultSet.getString("USER_ID");
             System.out.printf("User ID : %s : ", strUserID);
-            String strDatetime = resultSet.getString("ID");
+            String strDatetime = resultSet.getString("DATETIME");
             System.out.printf("Datetime : %s\n", strDatetime);
         }
 
