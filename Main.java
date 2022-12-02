@@ -130,6 +130,10 @@ public class Main{
                     break;
                 case "2":
                     System.out.println("Search by User Name");
+                    Scanner userNameScanner = new Scanner(System.in);
+                    System.out.println("Please Insert User Name for Search");
+                    String userNameInput = userNameScanner.nextLine();
+                    System.out.printf("User Search Result for %s\n", userNameInput);
                     break;
                 case "3":
                     return;
