@@ -89,7 +89,7 @@ public class Main{
         }
     }
 
-    static void searchTransactionMenu(){
+    static void searchTransactionMenu() throws SQLException {
         while(true){
             System.out.println("Please Select Transaction Search Menu.");
             System.out.println("1. List All Transactions");
@@ -102,20 +102,20 @@ public class Main{
             String userInput = menuScanner.nextLine();
             switch(userInput){
                 case "1":
-                    System.out.println("List All Transactions");
+                    printTransaction("SELECT * FROM TRANSACTION");
                     break;
                 case "2":
                     System.out.println("Search by User Name");
                     Scanner userNameScanner = new Scanner(System.in);
                     System.out.println("Please Insert User Name for Search");
                     String userNameInput = userNameScanner.nextLine();
-                    System.out.printf("User Search Result for %s\n", userNameInput);
+                    printTransaction(String.format("SELECT * FROM TRANSACTION WHERE USER_ID=\"%s\"", userNameInput));
                     break;
                 case "3":
                     Scanner prodNameScanner = new Scanner(System.in);
                     System.out.println("Please Insert Product Name for Search");
                     String prodNameInput = prodNameScanner.nextLine();
-                    System.out.printf("Product Search Result for %s\n", prodNameInput);
+                    printTransaction(String.format("SELECT * FROM TRANSACTION AS TR WHERE TR.PROD_ID IN (SELECT ID FROM PRODUCT AS PR WHERE PR.NAME=\"%s\")", prodNameInput));
                     break;
                 case "4":
                     return;
