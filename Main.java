@@ -63,11 +63,9 @@ public class Main{
             String userInput = menuScanner.nextLine();
             switch(userInput){
                 case "1":
-                    System.out.println("List All Products");
                     printProduct("SELECT * FROM PRODUCT");
                     break;
                 case "2":
-                    System.out.println("List All Available Products");
                     printProduct("SELECT * FROM PRODUCT AS PR WHERE (SELECT COUNT FROM STOCK AS STK WHERE STK.PROD_ID=PR.ID) > 0;");
                     break;
                 case "3":
