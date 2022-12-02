@@ -1,7 +1,22 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main{
-    public static void main(String[] args){
+    static Connection connection;
+    static Statement statement;
+
+    public static void main(String[] args) throws SQLException, FileNotFoundException {
+        Scanner sqlConnDataScanner = new Scanner(new File("SQL_CONN.txt"));
+        String[] sqlConnData = new String[3];
+        for(int i = 0; sqlConnDataScanner.hasNextLine(); i++){
+            sqlConnData[i] = sqlConnDataScanner.nextLine();
+        }
+
+        connection = DriverManager.getConnection(sqlConnData[0], sqlConnData[1], sqlConnData[2]);
+        statement = connection.createStatement();
+
         System.out.println("Database Design Report 4 : Dept. Software 20194094 유용민");
         while(true){
             System.out.println("********************");
@@ -107,5 +122,43 @@ public class Main{
                     System.out.println("Wrong Input. Please Try Again.");
             }
         }
+    }
+
+    static void printProduct(String sqlsQuery) throws SQLException {
+        ResultSet resultSet = statement.executeQuery(sqlsQuery);
+
+        while(resultSet.next()){
+            String strProductID = resultSet.getString("ID");
+            System.out.printf("Product ID : %s : ", strProductID);
+            String strProductName = resultSet.getString("NAME");
+            System.out.printf("Product Name : %s / ", strProductName);
+            String strProductManuCompany = resultSet.getString("MAN_COMPANY");
+            System.out.printf("Product Manufacture Company : %s / ", strProductManuCompany);
+            String strProductManuCountry = resultSet.getString("MAN_COUNTRY");
+            System.out.printf("Product Manufacture Country : %s / ", strProductManuCountry);
+            String strProductPrice = resultSet.getString("PRICE");
+            System.out.printf("Product Price : %s / ", strProductPrice);
+            String strProductType = resultSet.getString("TYPE");
+            System.out.printf("Product Type : %s\n", strProductType);
+        }
+
+        resultSet.close();
+    }
+
+    static void printTransaction(String sqlsQuery) throws SQLException {
+        ResultSet resultSet = statement.executeQuery(sqlsQuery);
+
+        while(resultSet.next()){
+            String strTransactionID = resultSet.getString("ID");
+            System.out.printf("Transaction ID : %s : ", strTransactionID);
+            String strProductID = resultSet.getString("ID");
+            System.out.printf("Product ID : %s : ", strProductID);
+            String strUserID = resultSet.getString("ID");
+            System.out.printf("User ID : %s : ", strUserID);
+            String strDatetime = resultSet.getString("ID");
+            System.out.printf("Datetime : %s\n", strDatetime);
+        }
+
+        resultSet.close();
     }
 }
