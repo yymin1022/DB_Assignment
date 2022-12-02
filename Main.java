@@ -17,7 +17,7 @@ public class Main{
         connection = DriverManager.getConnection(sqlConnData[0], sqlConnData[1], sqlConnData[2]);
         statement = connection.createStatement();
 
-        System.out.println("Database Design Report 4 : Dept. Software 20194094 유용민");
+        System.out.println("Database Design Report 4 : Dept. Software 20194094 Yongmin Yoo");
         while(true){
             System.out.println("********************");
             System.out.println("Please Select Menu.");
