@@ -59,10 +59,16 @@ public class Main{
                     System.out.println("List All Available Products");
                     break;
                 case "3":
-                    System.out.println("Search by Product Name");
+                    Scanner prodNameScanner = new Scanner(System.in);
+                    System.out.println("Please Insert Product Name for Search");
+                    String prodNameInput = prodNameScanner.nextLine();
+                    System.out.printf("Product Search Result for %s\n", prodNameInput);
                     break;
                 case "4":
-                    System.out.println("Search by Product Type");
+                    Scanner prodTypeScanner = new Scanner(System.in);
+                    System.out.println("Please Insert Product Type for Search");
+                    String prodTypeInput = prodTypeScanner.nextLine();
+                    System.out.printf("Product Search Result for %s\n", prodTypeInput);
                     break;
                 case "5":
                     return;
