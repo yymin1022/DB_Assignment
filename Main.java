@@ -95,9 +95,16 @@ public class Main{
                     break;
                 case "2":
                     System.out.println("Search by User Name");
+                    Scanner userNameScanner = new Scanner(System.in);
+                    System.out.println("Please Insert User Name for Search");
+                    String userNameInput = userNameScanner.nextLine();
+                    System.out.printf("User Search Result for %s\n", userNameInput);
                     break;
                 case "3":
-                    System.out.println("Search by Product Name");
+                    Scanner prodNameScanner = new Scanner(System.in);
+                    System.out.println("Please Insert Product Name for Search");
+                    String prodNameInput = prodNameScanner.nextLine();
+                    System.out.printf("Product Search Result for %s\n", prodNameInput);
                     break;
                 case "4":
                     return;
